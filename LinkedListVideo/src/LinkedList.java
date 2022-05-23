@@ -1,16 +1,18 @@
 
 public class LinkedList {
 	private Knoten erster;
+	private Knoten letzter;
 	
 	public LinkedList() {
 		erster = null;
+		letzter = null;
 	}
 	
 	public void add(Student student) {
 		Knoten k = new Knoten(student);
 		
 		if (erster == null)
-			erster = k;
+			erster = letzter = k;
 		else {
 			Knoten aktueller = erster;
 			while (aktueller.nächster != null) {
@@ -18,6 +20,7 @@ public class LinkedList {
 			}
 			
 			aktueller.nächster = k;
+			letzter = k;
 		}
 	}
 
@@ -33,6 +36,9 @@ public class LinkedList {
 	public void remove(int index) {
 		if (index == 0) {
 			erster = erster.nächster;
+			
+			if (letzter == erster)
+				letzter = null;
 		} else {
 			Knoten aktueller = erster;
 			for (int i = 0; i < index -1; i++) {
@@ -40,9 +46,11 @@ public class LinkedList {
 			}
 			
 			aktueller.nächster = aktueller.nächster.nächster;
+			
+			if (aktueller.nächster == letzter)
+				letzter = aktueller;
 		}
 			
-		
 	}
 
 	public void add(int index, Student student) {
@@ -59,6 +67,9 @@ public class LinkedList {
 			
 			k.nächster = aktueller.nächster;
 			aktueller.nächster = k;
+			
+			if (aktueller == letzter)
+				letzter = k;
 		}
 	}
 	

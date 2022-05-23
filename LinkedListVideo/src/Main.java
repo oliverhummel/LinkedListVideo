@@ -15,13 +15,20 @@ public class Main {
 		lili.add(s2);
 		lili.add(s3);
 		
-		System.out.println( lili.get(1) );
+		System.out.println( lili.get(1) ); // Fr. Moor
 		
 		lili.remove(1);
 		
+		System.out.println( lili.get(1) ); // Hr. Müller
+		
 		Student s4 = new Student("Hannah", "Heinrich", 33333);
 		
-		lili.add(2, s4);
+		lili.add(1, s4);
+		
+		System.out.println();
+		System.out.println( lili.get(0) ); // Meier
+		System.out.println( lili.get(1) ); // Heinrich
+		System.out.println( lili.get(2) ); // Müller
 	}
 
 }
