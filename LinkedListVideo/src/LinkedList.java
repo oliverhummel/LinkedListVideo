@@ -22,7 +22,12 @@ public class LinkedList {
 	}
 
 	public Student get(int index) {
-		return null;
+		Knoten aktueller = erster;
+		for (int i = 0; i < index; i++) {
+			aktueller = aktueller.nächster;
+		}
+		
+		return aktueller.passagier;
 	}
 
 	public void remove(int i) {
