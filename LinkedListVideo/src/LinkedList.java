@@ -30,12 +30,23 @@ public class LinkedList {
 		return aktueller.passagier;
 	}
 
-	public void remove(int i) {
+	public void remove(int index) {
+		if (index == 0) {
+			erster = erster.nächster;
+		} else {
+			Knoten aktueller = erster;
+			for (int i = 0; i < index -1; i++) {
+				aktueller = aktueller.nächster;
+			}
+			
+			aktueller.nächster = aktueller.nächster.nächster;
+		}
+			
 		
 	}
 
-	public void add(int i, Student s4) {
-		
+	public void add(int index, Student student) {
+
 	}
 	
 	class Knoten {
