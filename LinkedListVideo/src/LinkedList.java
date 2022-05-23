@@ -46,7 +46,20 @@ public class LinkedList {
 	}
 
 	public void add(int index, Student student) {
-
+		Knoten k = new Knoten(student);
+		
+		if (index == 0) {
+			k.nächster = erster;
+			erster = k;
+		} else {
+			Knoten aktueller = erster;
+			for (int i = 0; i < index -1; i++) {
+				aktueller = aktueller.nächster;
+			}
+			
+			k.nächster = aktueller.nächster;
+			aktueller.nächster = k;
+		}
 	}
 	
 	class Knoten {
