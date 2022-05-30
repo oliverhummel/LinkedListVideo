@@ -1,5 +1,5 @@
 
-public class LinkedList {
+public class LinkedList<T> {
 	private Knoten erster;
 	private Knoten letzter;
 	
@@ -8,8 +8,8 @@ public class LinkedList {
 		letzter = null;
 	}
 	
-	public void add(Student student) {
-		Knoten k = new Knoten(student);
+	public void add(T t) {
+		Knoten k = new Knoten(t);
 		
 		if (erster == null)
 			erster = letzter = k;
@@ -24,7 +24,7 @@ public class LinkedList {
 		}
 	}
 
-	public Student get(int index) {
+	public T get(int index) {
 		Knoten aktueller = erster;
 		for (int i = 0; i < index; i++) {
 			aktueller = aktueller.nächster;
@@ -53,8 +53,8 @@ public class LinkedList {
 			
 	}
 
-	public void add(int index, Student student) {
-		Knoten k = new Knoten(student);
+	public void add(int index, T t) {
+		Knoten k = new Knoten(t);
 		
 		if (index == 0) {
 			k.nächster = erster;
@@ -74,12 +74,12 @@ public class LinkedList {
 	}
 	
 	class Knoten {
-		private Student passagier;
+		private T passagier;
 		private Knoten nächster;
 		
-		Knoten(Student s) {
+		Knoten(T t) {
 			nächster = null;
-			passagier = s;
+			passagier = t;
 		}
 		
 	}

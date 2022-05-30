@@ -9,7 +9,7 @@ public class Main {
 		
 		Student s3 = new Student("David", "Müller", 22222);
 		
-		LinkedList lili = new LinkedList();
+		LinkedList<Student> lili = new LinkedList<>();
 		
 		lili.add(s1);
 		lili.add(s2);
